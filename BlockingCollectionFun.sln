@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlockingCollectionFun", "BlockingCollectionFun\BlockingCollectionFun.csproj", "{BF495A9F-F0E5-464F-9EFF-16DC1C008D7B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF495A9F-F0E5-464F-9EFF-16DC1C008D7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF495A9F-F0E5-464F-9EFF-16DC1C008D7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF495A9F-F0E5-464F-9EFF-16DC1C008D7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF495A9F-F0E5-464F-9EFF-16DC1C008D7B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

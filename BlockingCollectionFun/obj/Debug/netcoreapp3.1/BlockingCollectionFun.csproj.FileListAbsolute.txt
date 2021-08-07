@@ -1,0 +1,12 @@
+/Users/ericvalid/personal/BlockingCollectionFun/BlockingCollectionFun/bin/Debug/netcoreapp3.1/BlockingCollectionFun.deps.json
+/Users/ericvalid/personal/BlockingCollectionFun/BlockingCollectionFun/bin/Debug/netcoreapp3.1/BlockingCollectionFun.runtimeconfig.json
+/Users/ericvalid/personal/BlockingCollectionFun/BlockingCollectionFun/bin/Debug/netcoreapp3.1/BlockingCollectionFun.runtimeconfig.dev.json
+/Users/ericvalid/personal/BlockingCollectionFun/BlockingCollectionFun/bin/Debug/netcoreapp3.1/BlockingCollectionFun.dll
+/Users/ericvalid/personal/BlockingCollectionFun/BlockingCollectionFun/bin/Debug/netcoreapp3.1/BlockingCollectionFun.pdb
+/Users/ericvalid/personal/BlockingCollectionFun/BlockingCollectionFun/obj/Debug/netcoreapp3.1/BlockingCollectionFun.csprojAssemblyReference.cache
+/Users/ericvalid/personal/BlockingCollectionFun/BlockingCollectionFun/obj/Debug/netcoreapp3.1/BlockingCollectionFun.AssemblyInfoInputs.cache
+/Users/ericvalid/personal/BlockingCollectionFun/BlockingCollectionFun/obj/Debug/netcoreapp3.1/BlockingCollectionFun.AssemblyInfo.cs
+/Users/ericvalid/personal/BlockingCollectionFun/BlockingCollectionFun/obj/Debug/netcoreapp3.1/BlockingCollectionFun.csproj.CoreCompileInputs.cache
+/Users/ericvalid/personal/BlockingCollectionFun/BlockingCollectionFun/obj/Debug/netcoreapp3.1/BlockingCollectionFun.dll
+/Users/ericvalid/personal/BlockingCollectionFun/BlockingCollectionFun/obj/Debug/netcoreapp3.1/BlockingCollectionFun.pdb
+/Users/ericvalid/personal/BlockingCollectionFun/BlockingCollectionFun/obj/Debug/netcoreapp3.1/BlockingCollectionFun.genruntimeconfig.cache
