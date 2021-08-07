@@ -8,6 +8,7 @@ namespace BlockingCollectionFun
 {
     class Program
     {
+        private static readonly ConsoleWriter ConsoleWriter = new ConsoleWriter();
         static async Task Main(string[] args)
         {
             for (var i = 0; i < 2; i++)
@@ -16,7 +17,8 @@ namespace BlockingCollectionFun
                 await ProduceAndImport(12, CancellationToken.None);
                 ConsoleWriter.WriteMessage($"====== ended run {i} ======");
             }
-            
+
+            await ConsoleWriter.WaitUntilEmpty();
         }
 
         private static Task ProduceAndImport(int maxDegreesOfParallelism, CancellationToken ct)
@@ -124,28 +126,68 @@ namespace BlockingCollectionFun
     public class ConsoleWriter
     {
         private static readonly object MessageLock = new object();
+        private static readonly ConcurrentQueue<QueuedMessage> Messages = new ConcurrentQueue<QueuedMessage>();
+        private readonly Timer _messageTimer;
 
-        public static void WriteMessage(
-            string message, 
+        public ConsoleWriter()
+        {
+            _messageTimer = new Timer(WriteMessages, null, TimeSpan.FromMilliseconds(100), TimeSpan.Zero);
+        }
+
+        private void WriteMessages(object state)
+        {
+            while (Messages.TryDequeue(out var msg))
+            {
+                WriteMessage(msg);
+            }
+
+            _messageTimer.Change(100, 0);
+        }
+
+        private class QueuedMessage
+        {
+            public string Message { get; set; }
+            public ConsoleColor? BackgroundColor { get; set; }
+            public ConsoleColor? ForegroundColor { get; set; }
+        }
+
+        public void WriteMessage(string message,
             ConsoleColor? backgroundColor = null,
             ConsoleColor? foregroundColor = null)
         {
             message = $"[{DateTime.UtcNow:O}] {message}";
-            
+            Messages.Enqueue(new QueuedMessage
+            {
+                Message = message,
+                BackgroundColor = backgroundColor,
+                ForegroundColor = foregroundColor
+            });
+        }
+        
+        private void WriteMessage(QueuedMessage msg)
+        {
             lock (MessageLock)
             {
-                if (backgroundColor != null)
+                if (msg.BackgroundColor != null)
                 {
-                    Console.BackgroundColor = (ConsoleColor) backgroundColor;
+                    Console.BackgroundColor = (ConsoleColor) msg.BackgroundColor;
                 }
 
-                if (foregroundColor != null)
+                if (msg.ForegroundColor != null)
                 {
-                    Console.ForegroundColor = (ConsoleColor) foregroundColor;
+                    Console.ForegroundColor = (ConsoleColor) msg.ForegroundColor;
                 }
                 
-                Console.WriteLine(message);
+                Console.WriteLine(msg.Message);
                 Console.ResetColor();
+            }
+        }
+
+        public static async Task WaitUntilEmpty()
+        {
+            while (!Messages.IsEmpty)
+            {
+                await Task.Delay(100);
             }
         }
     }
